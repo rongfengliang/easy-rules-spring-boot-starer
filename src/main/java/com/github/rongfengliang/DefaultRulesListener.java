@@ -1,4 +1,4 @@
-package com.rongfengliang;
+package com.github.rongfengliang;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

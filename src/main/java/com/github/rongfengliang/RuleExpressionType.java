@@ -1,4 +1,4 @@
-package com.rongfengliang;
+package com.github.rongfengliang;
 
 /**
  * @author dalong

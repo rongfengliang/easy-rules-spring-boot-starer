@@ -1,7 +1,7 @@
-package com.rongfengliang.rulelocator;
+package com.github.rongfengliang.rulelocator;
 
-import com.rongfengliang.RuleFileType;
-import com.rongfengliang.RuleExpressionType;
+import com.github.rongfengliang.RuleFileType;
+import com.github.rongfengliang.RuleExpressionType;
 import org.jeasy.rules.api.Rules;
 
 import java.util.Map;

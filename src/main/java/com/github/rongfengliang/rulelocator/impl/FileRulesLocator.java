@@ -1,8 +1,8 @@
-package com.rongfengliang.rulelocator.impl;
+package com.github.rongfengliang.rulelocator.impl;
 
-import com.rongfengliang.RuleFileType;
-import com.rongfengliang.RuleExpressionType;
-import com.rongfengliang.rulelocator.RulesLocator;
+import com.github.rongfengliang.RuleFileType;
+import com.github.rongfengliang.RuleExpressionType;
+import com.github.rongfengliang.rulelocator.RulesLocator;
 import org.jeasy.rules.api.Rules;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.expression.BeanResolver;

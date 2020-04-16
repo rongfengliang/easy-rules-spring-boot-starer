@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.rongfengliang.EasyRulesAutoConfiguration
+com.github.rongfengliang.EasyRulesAutoConfiguration

@@ -1,4 +1,4 @@
-package com.rongfengliang;
+package com.github.rongfengliang;
 
 
 import org.jeasy.rules.annotation.Action;
