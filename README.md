@@ -10,7 +10,7 @@
 
 ```code
 <dependency>
-    <groupId>com.rongfengliang</groupId>
+    <groupId>com.github.rongfengliang</groupId>
     <artifactId>easy-rules-spring-boot-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
