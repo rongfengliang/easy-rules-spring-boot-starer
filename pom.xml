@@ -45,6 +45,19 @@
             <version>1.7.25</version>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>sonatype-releases</id>
+            <name>sonatype Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <id>sonatype-snapshots</id>
+            <name>sonatype Snapshot Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
