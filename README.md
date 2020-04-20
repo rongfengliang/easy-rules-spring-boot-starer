@@ -6,7 +6,7 @@
 
 *  添加依赖
 
-> 还没发布中央仓库
+>  oss.sonatype.org SNAPSHOT 已经可用
 
 ```code
 <dependency>
