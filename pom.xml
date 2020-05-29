@@ -18,7 +18,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <scm>
-        <developerConnection>https://github.com/rongfengliang/easy-rules-spring-boot-starer.git</developerConnection>
+        <developerConnection>>scm:git:https://github.com/rongfengliang/easy-rules-spring-boot-starer.git</developerConnection>
     </scm>
     <dependencies>
         <dependency>
@@ -83,8 +83,4 @@
             </plugin>
         </plugins>
     </build>
-
-  <scm>
-    <tag>2.0</tag>
-  </scm>
 </project>
