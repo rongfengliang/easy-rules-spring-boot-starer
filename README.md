@@ -6,13 +6,13 @@
 
 *  添加依赖
 
->  oss.sonatype.org SNAPSHOT 已经可用
+>  oss.sonatype.org SNAPSHOT 已经可用 支持easy-rules 4.0
 
 ```code
 <dependency>
     <groupId>com.github.rongfengliang</groupId>
     <artifactId>easy-rules-spring-boot-starter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>2.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -40,6 +40,10 @@ easyrules:
 
 添加规则文件: rules-json.json
 
+>  注意easy-rules 3.0与4.0有差异，
+
+3.0 的配置
+
 ```code
 [{
   "name": "1",
@@ -55,6 +59,29 @@ easyrules:
       "actions": [
         "#{@myService.setInfo(#biz)}",
         "#{T(com.dalong.easyrulesdemo.demo.UserServiceImpl).doAction4(#biz)}"
+      ]
+    }
+  ]}
+]
+```
+
+4.0 配置
+
+```code
+[{
+  "name": "1",
+  "description": "1",
+  "priority": 1,
+  "compositeRuleType": "UnitRuleGroup",
+  "composingRules": [
+    {
+      "name": "2",
+      "description": "2",
+      "condition": "#biz.age >18",
+      "priority": 2,
+      "actions": [
+        "@myService.setInfo(#biz)",
+        "T(com.dalong.easyrulesv4.UserServiceImpl).doAction4(#biz)"
       ]
     }
   ]}
