@@ -42,7 +42,7 @@ easyrules:
 
 >  注意easy-rules 3.0与4.0有差异，
 
-3.0 的配置
+1.0-SNAPSHOT starter 参考配置
 
 ```code
 [{
@@ -65,7 +65,7 @@ easyrules:
 ]
 ```
 
-4.0 配置
+2.0-SNAPSHOT starter 参考配置
 
 ```code
 [{
@@ -86,6 +86,75 @@ easyrules:
     }
   ]}
 ]
+```
+
+## 代码使用说明
+
+对于3.0 返回值使用了一个FinalRule，但是4.0 使用了不可变对象，执行会有问题，以下为使用方法
+
+1.0-SNAPSHOT 参考使用
+
+```code
+@RestController
+public class UserApi {
+
+    @Autowired
+    Map<String,Rules> configRules;
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public  Object info(@RequestBody User user) throws Exception {
+        Rules rules = configRules.get("userlogin");
+        Facts facts = new Facts();
+        // 生成一个唯一id，方便基于数据id规则流程查询
+        user.setUniqueId(UUID.randomUUID().toString());
+        FinalRule<User> rule = new FinalRule<User>();
+        // rules.register(spELRule);
+        rules.register(rule);
+        facts.put("biz",user);
+        //  默认模式
+        // myEngine.fire(rules,facts);
+        // 应该使用原型模式
+        SpringBeanUtil.getBean("rulesEngine",RulesEngine.class).fire(rules,facts);
+        if(rule.isExecuted()){
+            User userResult=  rule.getResult();
+            System.out.println("result from final ruls"+userResult.toString());
+            return userResult;
+        }
+        else  {
+            return  null;
+        }
+    }
+
+}
+
+```
+
+2.0-SNAPSHOT 参考使用
+
+
+```code
+
+@RestController
+public class UserApi {
+
+    @Autowired
+    Map<String,Rules> configRules;
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public  Object info(@RequestBody User user) throws Exception {
+        Rules rules = configRules.get("userlogin");
+        Facts facts = new Facts();
+        // 生成一个唯一id，方便基于数据id规则流程查询
+        user.setUniqueId(UUID.randomUUID().toString());
+        facts.put("biz",user);
+        //  默认模式
+        // myEngine.fire(rules,facts);
+        // 应该使用原型模式
+        SpringBeanUtil.getBean("rulesEngine",RulesEngine.class).fire(rules,facts);
+        User userResult=  facts.get("biz");
+        System.out.println("result from final ruls"+userResult.toString());
+        return userResult;
+    }
+
+}
 ```
 
 ## 几个扩展点
