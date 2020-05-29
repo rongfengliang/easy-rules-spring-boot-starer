@@ -90,7 +90,6 @@ easyrules:
 
 ## 代码使用说明
 
-对于3.0 返回值使用了一个FinalRule，但是4.0 使用了不可变对象，执行会有问题，以下为使用方法
 
 1.0-SNAPSHOT 参考使用
 
@@ -117,6 +116,7 @@ public class UserApi {
         if(rule.isExecuted()){
             User userResult=  rule.getResult();
             System.out.println("result from final ruls"+userResult.toString());
+            rules.unregister(rule);
             return userResult;
         }
         else  {
